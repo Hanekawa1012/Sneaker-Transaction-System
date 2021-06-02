@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}On Sale{% endblock %}
+{% block css %}
+{#    <link rel="stylesheet" href="{% static 'css/index.css' %}">#}
+
+    </style>
+{% endblock %}
+{% block content  %}
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="col-12">
+                    <h1 class="my-4 display-3">On Sale</h1>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Inventory id</th>
+                            <th>Sneaker name</th>
+                            <th>Price</th>
+                            <th>Seller</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for obj in objs %}
+                        <tr class>
+                            <td>{{ obj.id}}</td>
+                            <td> {{ obj.sneaker_name }}</td>
+                            <td> ${{ obj.price}}</td>
+                            <td> {{ obj.seller }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        <div class="col-lg-12">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                {% if objs.has_previous %}
+                                    <a class='page-link' href="?page={{ objs.previous_page_number }}"style="color: #000000;">Previous</a>
+                                    <li class="page-item"><a class="page-link" href="?page={{ 1 }}"style="color: #000000;">1</a></li>
+                                    <li class="page-item">...</li>
+                                {% endif %}
+                                {% if objs.previous_page_number != 1 %}
+                                    <li class="page-item"><a style="color: #000000;"class="page-link" href="?page={{ objs.previous_page_number }}">{{ objs.previous_page_number }}</a></li>
+                                {% endif %}
+
+                                {% if p2 >= objs.paginator.num_pages  %}
+                                    <li class="active page-item"><a style="color: #000000;"class="page-link" href="?page={{ objs.number }}">{{ objs.number }}</a></li>
+
+                                {% elif p3 >= objs.paginator.num_pages%}
+                                    <li class="active page-item"><a style="color: #000000;"class="page-link" href="?page={{ objs.number }}">{{ objs.number }}</a></li>
+                                    <li class="page-item"><a style="color: #000000;"class="page-link" href="?page={{ p2 }}">{{p2 }}</a></li>
+                                {% else %}
+                                    <li class="active page-item"><a style="color: #000000;"class="page-link" href="?page={{ objs.number }}">{{ objs.number }}</a></li>
+                                    <li class="page-item"><a style="color: #000000;"class="page-link" href="?page={{ p2 }}">{{p2 }}</a></li>
+                                    <li class="page-item"><a style="color: #000000;"class="page-link" href="?page={{ p3 }}">{{p3}}</a></li>
+                                {% endif %}
+                                {% if objs.has_next %}
+                                    <li class="page-item">...</li>
+                                 <li class="page-item"><a style="color: #000000;"class="page-link" href="?page={{ objs.paginator.num_pages }}">{{ objs.paginator.num_pages }}</a></li>
+                                    <a style="color: #000000;"class='page-link' href="?page={{ objs.next_page_number }}">Next</a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+        </div>
+    </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+{% endblock %}

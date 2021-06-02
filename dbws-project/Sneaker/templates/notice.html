@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ message }}{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/item.css' %}">
+
+{% endblock %}
+{% block content  %}
+    <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center" >
+                    <div class="col-md-12"><h1 class="text-center display-3" style="margin-bottom: 30px;">{{ message }}</h1></div>
+                    <div class="col-md-4" style="margin-top: 150px;"></div>
+                    <div class="col-md-4" style="margin-top: 150px;">
+                        <a href="/sneaker/index"><button type="button" class="btn btn-lg btn-secondary float-left">Home</button></a>
+                        <a href="/sneaker/library"><button type="button" class="btn btn-lg btn-dark float-right" >Shop</button></a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

@@ -1,0 +1,107 @@
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-sm,
+.navbar > .container-md,
+.navbar > .container-lg,
+.navbar > .container-xl,
+.navbar > .container-xxl {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+        .navbar-expand-lg .navbar-nav {
+            flex-direction: row;
+        }
+
+            .navbar-expand-lg .navbar-nav .dropdown-menu {
+                position: absolute;
+            }
+
+            .navbar-expand-lg .navbar-nav .nav-link {
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+            }
+
+        .navbar-expand-lg .navbar-nav-scroll {
+            overflow: visible;
+        }
+
+        .navbar-expand-lg .navbar-collapse {
+            display: flex !important;
+            flex-basis: auto;
+        }
+
+        .navbar-expand-lg .navbar-toggler {
+            display: none;
+        }
+}
+.navbar-light .navbar-brand {
+    color: rgba(0, 0, 0, 0.9);
+}
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .container-sm, .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container-md, .container-sm, .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container-lg, .container-md, .container-sm, .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1320px;
+    }
+}
+.navbar-brand {
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
